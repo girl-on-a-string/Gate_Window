@@ -20,6 +20,11 @@
 </div>
 
 <style lang="scss">
+    @font-face {
+        font-family: "num";
+        src: url("/InstrumentSerif-Regular.ttf");
+    }
+
     :root {
         --border: ;
     }
@@ -34,13 +39,21 @@
         display: flex;
 
         .topic {
+            padding: .625rem;
+
             .outer-content {
                 height: 100%;
                 display: flex;
                 align-items: flex-end;
+
+                .num {
+                    width: 50%;
+                    font-size: 150px;
+                    font-family: "num";
+                }
             }
 
-            border-right: 2px solid var(--border);
+            border-right: 3px solid var(--border);
 
             :last-child {
                 border: none;
