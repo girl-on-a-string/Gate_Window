@@ -47,7 +47,6 @@
 
         .topic {
             background-color: var(--main-bg);
-            padding: .625rem;
 
             .inner-content {
                 position: absolute;
@@ -67,7 +66,7 @@
                 align-items: flex-end;
 
                 .num {
-                    margin-right: .625rem;
+                    margin-left: .625rem;
                     font-size: 9.375rem;
                     font-family: "num";
                 }
