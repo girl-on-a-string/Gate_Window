@@ -1,25 +1,19 @@
-{#snippet topic(itemNum, topicHeader, topicDesc, topicPageLink)}
+{#snippet topic(itemNum, topicPageLink)}
     <div id="topic-{itemNum}" class="topic"> <!--id is number that increases with each one-->
         <div class="inner-content">
             <iframe title="topic {itemNum}" src="{topicPageLink}" frameborder="0"></iframe>
         </div> <!--iframe location-->
         <div class="outer-content"> <!--content scene while minimized-->
-            <div class="num">{itemNum}</div> <!--num should increase with each one-->
-            <div class="content-box">
-                <div class="topic-head">{topicHeader}</div>
-                <div class="topic-desc">
-                    {topicDesc}
-                </div>
-            </div>
+            <div class="num">Topic {itemNum}</div> <!--num should increase with each one-->
         </div>
     </div>
 {/snippet}
 
 <div id="container">
-    {@render topic(1, "Wow, look at this!", "Lorem ipsum odor amet, consectetuer adipiscing elit. Natoque volutpat placerat dictum ante ut fames. Suspendisse interdum consectetur nascetur sociosqu tortor nunc enim.", "")}
-    {@render topic(2, "This is cool, too.", "Lorem ipsum odor amet, consectetuer adipiscing elit. Montes a lacinia odio nibh class aenean natoque natoque. Pellentesque tortor massa enim at fames in imperdiet neque.", "")}
-    {@render topic(3, "And this? Amazing.", "Lorem ipsum odor amet, consectetuer adipiscing elit. Dictum ut suscipit class platea scelerisque adipiscing pretium. Potenti ex odio dictum consequat odio. Luctus leo netus; quis eros nisi condimentum.", "")}
-    {@render topic(4, "Don't forget this!", "Lorem ipsum odor amet, consectetuer adipiscing elit. Interdum sodales ultrices dignissim dis nam. Rhoncus condimentum tempus nullam ornare, semper metus nam.", "")}
+    {@render topic(1, "")}
+    {@render topic(2, "")}
+    {@render topic(3, "")}
+    {@render topic(4, "")}
 </div>
 
 <style lang="scss">
@@ -57,6 +51,13 @@
 
             .inner-content {
                 position: absolute;
+                width: calc(100vw / 4);
+                height: 100%;
+
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             .outer-content {
@@ -66,8 +67,6 @@
                 align-items: flex-end;
 
                 .num {
-                    width: 4.688rem;
-                    height: 9.688rem;
                     margin-right: .625rem;
                     font-size: 9.375rem;
                     font-family: "num";
