@@ -3,7 +3,7 @@
         <div class="inner-content">
             <iframe title="topic {itemNum}" src="{topicPageLink}" frameborder="0"></iframe>
         </div> <!--iframe location-->
-        <div class="outer-content"> <!--content scene while minimized-->
+        <div class="outer-content" on:mouseenter={() => {hoverAnim(itemNum)}} role="navigation"> <!--content scene while minimized-->
             <div class="num">Topic {itemNum}</div> <!--num should increase with each one-->
         </div>
     </div>
@@ -15,6 +15,13 @@
     {@render topic(3, "")}
     {@render topic(4, "")}
 </div>
+
+<script>
+    function hoverAnim (item) {
+        let target = document.getElementById(`topic-${item}`);
+        console.log(target);
+    }
+</script>
 
 <style lang="scss">
     @font-face {
@@ -64,23 +71,14 @@
                 height: 100%;
                 display: flex;
                 align-items: flex-end;
+                animation-name: hover;
+                animation-duration: 500ms;
+                animation-play-state: paused;
 
                 .num {
                     margin-left: .625rem;
                     font-size: 9.375rem;
                     font-family: "num";
-                }
-
-                .content-box {
-                    .topic-head {
-                        font-family: "topic-head";
-                        font-size: 45px;
-                    }
-
-                    .topic-desc {
-                        font-family: Arial, Helvetica, sans-serif;
-                        font-size: 20px;
-                    }
                 }
             }
 
@@ -88,6 +86,16 @@
 
             :last-child {
                 border: none;
+            }
+        }
+
+        @keyframes hover {
+            from {
+                height: 100%;
+            }
+
+            to {
+                height: 0%;
             }
         }
     }
